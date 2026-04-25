@@ -5,7 +5,7 @@ import asyncio
 
 app = FastAPI()
 
-# 📚 Book model (OOP structure)
+#  Book model (OOP structure)
 class Book(BaseModel):
     id: int
     title: str
@@ -13,33 +13,33 @@ class Book(BaseModel):
     category: str
     available: bool
 
-# 📖 Borrow request model
+# Borrow request model
 class BorrowRequest(BaseModel):
     user_id: int
     book_id: int
 
-# 🔁 Return request model
+# Return request model
 class ReturnRequest(BaseModel):
     user_id: int
     book_id: int
 
-# 📚 Fake database
+# Fake database
 books: List[Book] = [
     Book(id=1, title="Python Basics", author="John Smith", category="Programming", available=True),
     Book(id=2, title="Database Systems", author="Mary Brown", category="IT", available=True)
 ]
 
-# 🏠 Home endpoint
+# Home endpoint
 @app.get("/")
 async def home():
     return {"message": "Library API is running"}
 
-# 📚 Get all books
+# Get all books
 @app.get("/books", response_model=List[Book])
 async def get_books():
     return books
 
-# 🔎 Search books
+#  Search books
 @app.get("/books/search", response_model=List[Book])
 async def search_books(query: str):
     results = []
@@ -54,11 +54,11 @@ async def search_books(query: str):
 
     return results
 
-# 📖 Borrow book (ASYNC + ERROR HANDLING)
+#  Borrow book
 @app.post("/borrow")
 async def borrow_book(request: BorrowRequest):
 
-    await asyncio.sleep(1)  # simulate real system delay
+    await asyncio.sleep(1)
 
     for book in books:
         if book.id == request.book_id:
@@ -76,11 +76,11 @@ async def borrow_book(request: BorrowRequest):
 
     raise HTTPException(status_code=404, detail="Book not found")
 
-# 🔁 Return book (ASYNC + STATE UPDATE)
+#  Return book
 @app.post("/return")
 async def return_book(request: ReturnRequest):
 
-    await asyncio.sleep(1)  # simulate real system delay
+    await asyncio.sleep(1)
 
     for book in books:
         if book.id == request.book_id:
