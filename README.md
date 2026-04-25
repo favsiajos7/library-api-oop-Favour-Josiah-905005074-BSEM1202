@@ -1,7 +1,7 @@
 # Library API System using FastAPI (OOP Project)
 
-## Descriptions
-This project is a Library Management API built using FastAPI and Object-Oriented Programming (OOP) principles. It allows users to search for books, borrow books, and return books through a simple and efficient RESTful API system. The system is designed to simulate a real-world library where multiple users can interact with the database at the same time.
+## Description
+This project is a Library Management API built using FastAPI and Object-Oriented Programming (OOP) principles. It allows users to search for books, borrow books, and return books through a simple and efficient RESTful API system. The system simulates a real-world library where multiple users can interact with the system at the same time.
 
 ## Features
 
@@ -14,6 +14,8 @@ This project is a Library Management API built using FastAPI and Object-Oriented
 - OOP-based Book model structure  
 - Asynchronous operations for realistic system simulation  
 
+
+
 ## Technologies Used
 
 - Python  
@@ -25,31 +27,13 @@ This project is a Library Management API built using FastAPI and Object-Oriented
 
 ## How to Run the Project
 
-1. Install dependencies:
-pip install fastapi uvicorn
-uvicorn main:app --reload
-http://127.0.0.1:8000/docs
+Install dependencies: pip install -r requirements.txt
+Run the server: uvicorn main:app --reload
+Open API in browser: http://127.0.0.1:8000/docs
 
-## API Endpoints
+## Test Endpoints
+- GET /books 
+- GET /books/search?query=python
+- POST /borrow
+- POST /return
 
-- GET / → Home endpoint (checks if API is running)  
-- GET /books → Returns all books in the library  
-- GET /books/search?query= → Searches books by title, author, or category  
-- POST /borrow → Allows a user to borrow a book  
-- POST /return → Allows a user to return a borrowed book  
-
-## Project Structure
-
-library-api/
-│── main.py
-│── README.md
-│── requirements.txt
-│── .gitignore
-
-## Author
-
-- Name: Favour Sia Josiah  
-- Class/semester: BSEM1202/Sem4 
-- ID: 905005074
-
- 
